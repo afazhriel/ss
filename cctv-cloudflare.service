@@ -1,0 +1,17 @@
+[Unit]
+Description=CCTV Cloudflare Quick Tunnel
+After=network-online.target mediamtx.service
+Wants=network-online.target
+Requires=mediamtx.service
+
+[Service]
+Type=simple
+User=aptek
+
+ExecStart=/usr/local/bin/cctv-cloudflare
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
